@@ -86,7 +86,7 @@ if st.button('Dự đoán điểm cuối kì (G3)'):
     prediction = model.predict(input_df)
     predicted_score = prediction[0]
 
-    st.success(f'Điểm G3 dự đoán là: **{predicted_score:.2f}**')
+    st.success(f'Điểm G3 dự đoán là: **{predicted_score:.2f} / 20.0**')
 
     if predicted_score >= 16:
         st.info("Học sinh này được dự đoán có học lực **Giỏi**.")
