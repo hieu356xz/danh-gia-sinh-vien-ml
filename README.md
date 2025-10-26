@@ -18,7 +18,7 @@ Dự án này sử dụng các thuật toán Machine Learning để phân tích 
 -   **Ngôn ngữ**: Python
 -   **Thư viện**: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Streamlit
 -   **Mô hình**: `RandomForestRegressor`
--   **Phân tích**: Jupyter Notebook (`PhanLoaiXepHangHocSinh.ipynb`)
+-   **Phân tích**: Jupyter Notebook (`DuDoanDiemSinhVien.ipynb`)
 
 ## Cách chạy dự án
 
@@ -28,7 +28,7 @@ Dự án này sử dụng các thuật toán Machine Learning để phân tích 
     ```
 
 2.  **Xem quá trình phân tích và huấn luyện model:**
-    Mở và chạy các cell trong file `PhanLoaiXepHangHocSinh.ipynb`.
+    Mở và chạy các cell trong file `DuDoanDiemSinhVien.ipynb`.
 
 3.  **Chạy giao diện web dự đoán:**
     > **Lưu ý:** Cần chạy notebook ở **Bước 2** ít nhất một lần để export ra file model (`student_performance_regressor.joblib`).
