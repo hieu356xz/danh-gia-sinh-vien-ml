@@ -39,32 +39,52 @@ input_data = {}
 
 with col1:
     st.subheader("Thông tin cá nhân & Gia đình")
-    input_data['school'] = st.selectbox('Trường học (school)', ['GP', 'MS'])
-    input_data['sex'] = st.selectbox('Giới tính (sex)', ['F', 'M'])
+
+    # --- Định nghĩa các tùy chọn với chú thích ---
+    school_options = {'GP': 'GP (Gabriel Pereira)', 'MS': 'MS (Mousinho da Silveira)'}
+    sex_options = {'F': 'F (Nữ)', 'M': 'M (Nam)'}
+    address_options = {'U': 'U (Thành thị)', 'R': 'R (Nông thôn)'}
+    famsize_options = {'LE3': 'LE3 (Nhỏ hơn hoặc bằng 3)', 'GT3': 'GT3 (Lớn hơn 3)'}
+    pstatus_options = {'T': 'T (Sống cùng nhau)', 'A': 'A (Sống riêng)'}
+    mjob_options = {'teacher': 'Giáo viên', 'health': 'Y tế', 'services': 'Dịch vụ', 'at_home': 'Ở nhà', 'other': 'Khác'}
+    fjob_options = {'teacher': 'Giáo viên', 'health': 'Y tế', 'services': 'Dịch vụ', 'at_home': 'Ở nhà', 'other': 'Khác'}
+    guardian_options = {'mother': 'Mẹ', 'father': 'Bố', 'other': 'Khác'}
+
+    input_data['school'] = st.selectbox('Trường học (school)', list(school_options.keys()), format_func=lambda x: school_options[x])
+    input_data['sex'] = st.selectbox('Giới tính (sex)', list(sex_options.keys()), format_func=lambda x: sex_options[x])
     input_data['age'] = st.slider('Tuổi (age)', 15, 22, 16)
-    input_data['address'] = st.selectbox('Khu vực sống (address)', ['U', 'R'])
-    input_data['famsize'] = st.selectbox('Sĩ số gia đình (famsize)', ['LE3', 'GT3'])
-    input_data['Pstatus'] = st.selectbox('Tình trạng sống chung của bố mẹ (Pstatus)', ['T', 'A'])
+    input_data['address'] = st.selectbox('Khu vực sống (address)', list(address_options.keys()), format_func=lambda x: address_options[x])
+    input_data['famsize'] = st.selectbox('Sĩ số gia đình (famsize)', list(famsize_options.keys()), format_func=lambda x: famsize_options[x])
+    input_data['Pstatus'] = st.selectbox('Tình trạng sống chung của bố mẹ (Pstatus)', list(pstatus_options.keys()), format_func=lambda x: pstatus_options[x])
     input_data['Medu'] = st.slider('Học vấn của mẹ (Medu)', 0, 4, 4)
     input_data['Fedu'] = st.slider('Học vấn của bố (Fedu)', 0, 4, 4)
-    input_data['Mjob'] = st.selectbox('Nghề nghiệp của mẹ (Mjob)', ['teacher', 'health', 'services', 'at_home', 'other'])
-    input_data['Fjob'] = st.selectbox('Nghề nghiệp của bố (Fjob)', ['teacher', 'health', 'services', 'at_home', 'other'])
-    input_data['guardian'] = st.selectbox('Người giám hộ (guardian)', ['mother', 'father', 'other'])
+    input_data['Mjob'] = st.selectbox('Nghề nghiệp của mẹ (Mjob)', list(mjob_options.keys()), format_func=lambda x: mjob_options[x])
+    input_data['Fjob'] = st.selectbox('Nghề nghiệp của bố (Fjob)', list(fjob_options.keys()), format_func=lambda x: fjob_options[x])
+    input_data['guardian'] = st.selectbox('Người giám hộ (guardian)', list(guardian_options.keys()), format_func=lambda x: guardian_options[x])
     input_data['famrel'] = st.slider('Chất lượng mối quan hệ gia đình (famrel)', 1, 5, 4)
 
 
 with col2:
     st.subheader("Thói quen & Kết quả học tập")
+
+    # --- Định nghĩa các tùy chọn với chú thích ---
+    studytime_options = {1: '1 (< 2 giờ)', 2: '2 (2-5 giờ)', 3: '3 (5-10 giờ)', 4: '4 (> 10 giờ)'}
+    goout_options = {1: '1 (Rất ít)', 2: '2 (Ít)', 3: '3 (Bình thường)', 4: '4 (Nhiều)', 5: '5 (Rất nhiều)'}
+    health_options = {1: '1 (Rất tệ)', 2: '2 (Tệ)', 3: '3 (Bình thường)', 4: '4 (Tốt)', 5: '5 (Rất tốt)'}
+    internet_options = {'yes': 'Có', 'no': 'Không'}
+    romantic_options = {'no': 'Không', 'yes': 'Có'}
+    higher_options = {'yes': 'Có', 'no': 'Không'}
+
     input_data['G1'] = st.slider('Điểm kỳ 1 (G1)', 0, 20, 10)
     input_data['G2'] = st.slider('Điểm kỳ 2 (G2)', 0, 20, 10)
-    input_data['studytime'] = st.slider('Thời gian học mỗi tuần (studytime)', 1, 4, 2) # 1: <2h, 2: 2-5h, 3: 5-10h, 4: >10h
+    input_data['studytime'] = st.selectbox('Thời gian học mỗi tuần (studytime)', list(studytime_options.keys()), format_func=lambda x: studytime_options[x], index=1)
     input_data['failures'] = st.slider('Số lần trượt môn trước đây (failures)', 0, 4, 0)
     input_data['absences'] = st.slider('Số buổi vắng học (absences)', 0, 93, 0)
-    input_data['goout'] = st.slider('Thời gian đi chơi với bạn bè (goout)', 1, 5, 3)
-    input_data['health'] = st.slider('Tình trạng sức khỏe (health)', 1, 5, 5)
-    input_data['internet'] = st.selectbox('Có Internet ở nhà (internet)', ['yes', 'no'])
-    input_data['romantic'] = st.selectbox('Trong một mối quan hệ lãng mạn (romantic)', ['no', 'yes'])
-    input_data['higher'] = st.selectbox('Muốn học lên cao hơn (higher)', ['yes', 'no'])
+    input_data['goout'] = st.selectbox('Thời gian đi chơi với bạn bè (goout)', list(goout_options.keys()), format_func=lambda x: goout_options[x], index=2)
+    input_data['health'] = st.selectbox('Tình trạng sức khỏe (health)', list(health_options.keys()), format_func=lambda x: health_options[x], index=4)
+    input_data['internet'] = st.selectbox('Có Internet ở nhà (internet)', list(internet_options.keys()), format_func=lambda x: internet_options[x])
+    input_data['romantic'] = st.selectbox('Trong một mối quan hệ lãng mạn (romantic)', list(romantic_options.keys()), format_func=lambda x: romantic_options[x])
+    input_data['higher'] = st.selectbox('Muốn học lên cao hơn (higher)', list(higher_options.keys()), format_func=lambda x: higher_options[x])
 
 # --- Prediction ---
 if st.button('Dự đoán điểm cuối kì (G3)'):
