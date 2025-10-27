@@ -1,4 +1,4 @@
-# Dự án Phân tích và Dự đoán Kết quả Học tập của Sinh viên
+# Dự án phân tích và dự đoán điểm cuối kì của sinh viên dựa trên dữ liệu học thuật và xã hội
 
 Dự án này sử dụng các thuật toán Machine Learning để phân tích và dự đoán kết quả học tập cuối kỳ (điểm G3) của học sinh dựa trên dữ liệu về học thuật, xã hội và nhân khẩu học.
 
