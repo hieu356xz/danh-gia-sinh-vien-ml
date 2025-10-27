@@ -22,16 +22,36 @@ Dự án này sử dụng các thuật toán Machine Learning để phân tích 
 
 ## Cách chạy dự án
 
-1.  **Cài đặt các thư viện cần thiết:**
+1.  **Tạo và kích hoạt môi trường ảo:**
+    > **Chỉ cần chạy lần đầu tiên**
+
+    Lệnh để tạo một môi trường ảo có tên là ".venv"
+    ```bash
+    python -m venv .venv
+    ```
+    Sau khi tạo, bạn cần kích hoạt nó mỗi khi làm việc với dự án.
+    ### Đối với Windows (PowerShell):
+    ```bash
+    .venv\Scripts\Activate.ps1
+    ```
+
+    ### Đối với macOS/Linux (bash/zsh):
+    ```bash
+    source .venv/bin/activate
+    ```
+    Sau khi kích hoạt, bạn sẽ thấy `(.venv)` ở đầu dòng lệnh trong terminal.
+
+2.  **Cài đặt các thư viện cần thiết:**
+    (Đảm bảo môi trường ảo đã được kích hoạt)
     ```bash
     pip install -r requirements.txt
     ```
 
-2.  **Xem quá trình phân tích và huấn luyện model:**
+3.  **Xem quá trình phân tích và huấn luyện model:**
     Mở và chạy các cell trong file `DuDoanDiemSinhVien.ipynb`.
 
-3.  **Chạy giao diện web dự đoán:**
-    > **Lưu ý:** Cần chạy notebook ở **Bước 2** ít nhất một lần để export ra file model (`student_performance_regressor.joblib`).
+4.  **Chạy giao diện web dự đoán:**
+    > **Lưu ý:** Cần chạy notebook ở **Bước 3** ít nhất một lần để export ra file model (`student_performance_regressor.joblib`).
 
     Chạy lệnh sau trong terminal:
     ```bash
